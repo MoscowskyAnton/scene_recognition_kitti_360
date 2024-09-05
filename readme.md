@@ -20,7 +20,7 @@ I made a script that helps convert popular [KITTI-360](https://www.cvlibs.net/da
 
 ## Download prepared sequences
 
-| Sequence | Objects in map | Scenes number | Video* | Files | MAP |
+| Sequence | Objects in map | Scenes number | Video* | Files | Map |
 |----------|----------------|----------------------------|-------|-------|-----|
 | 00       | 2333           | 9974                       | [youtube](https://youtu.be/A7bjzUIkK30?si=DuhxTbZS82iaXv9-) [rutube](https://rutube.ru/video/private/079623e768b9485d11debf8a1b0355bc/?p=Vlk90ysBleHwM_fXmewdWg) | [436.8](https://github.com/MoscowskyAnton/scene_recognition_kitti_360/releases/download/r0.0.1/seq00_save_06_08_17_26.tar.gz) MiB | <img src="doc/map_seq00.png" alt="Seq00 map" width="200"/> |
 | 02       | 1720           | 8304                       | [youtube](https://youtu.be/jT7Wn0y4FLE?si=9eBE0xW7PHHE-ihG) [rutube](https://rutube.ru/video/private/4a0c569a1e471078fcf2d0f6681e8146/?p=oxqOT3iad3x8fqOtBy3kgg) | [206](https://github.com/MoscowskyAnton/scene_recognition_kitti_360/releases/download/r0.0.1/seq02_save_06_08_10_44.tar.gz) MiB | <img src="doc/map_seq02.png" alt="Seq02 map" width="200"/>|
