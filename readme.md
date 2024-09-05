@@ -36,7 +36,7 @@ I made a script that helps convert popular [KITTI-360](https://www.cvlibs.net/da
 
 Each sequences has the following data:
  - Semantic map in `.csv` format. It contains object poses, its classes and global IDs, frames they were seen on and mean CLIP-features.
- - 
+  
 | gid | class | x | y | z | frames | mf0 | ... | mf511 |
 |-----|-------|---|---|---|--------|-----|-----|-------|
 | int |  str  | float | float | float | [int] as str | float | float | float |
