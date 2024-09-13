@@ -991,8 +991,7 @@ if __name__ == '__main__':
     parser.add_argument('--video_mix', action='store_true', help = "Save mixed video path of camera and map")
     
     parser.add_argument('--plot_invisible', action='store_true', help = "Save mixed video path of camera and map")
-    
-    
+        
     
     args = parser.parse_args()    
     dict_args = vars(args)

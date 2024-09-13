@@ -61,6 +61,7 @@ transform: # cam to map as 4x4 matrix
 ```
  - `.yaml` file with export params (see export script below).  
  - Map image with objects and track.
+ - **[new in v0.0.2]** Added `submaps` folder for sequences with big maps. There are map is divided on smaller areas with intersection with each other. Each folder has a set of files named `semantic_submap_#.csv` in the same format as the main Semantic Map. Also has exported parameters, as well images, shown how submaps are organized. The script for division is also provided and documented below.
 
 Also please note:
  - In all sequences next labels are **excluded**: driveway, fence, ground, pedestrian, railtrack, road, sidewalk, unknownConstruction, unknownGround, unknownObject, vegetation, wall, guardrail.
@@ -112,5 +113,26 @@ python3 scripts/semantic_map_and_scene_extractor.py --kitti_360_path ~/KITTI-360
   - **--video_map** (bool, default: false) If set, saves top-down video where objects on scene are associated with map.
   - **--video_mix** (bool, default: false) If set, saves mixed video of camera 0 and top-down map. Examples of such videos are in links are given in the table above.
   - **--plot_invisible** (bool, default: false) If set, also draws discarded objects on current scenes. Such objects are drawn with grey color. Helps to understand why some of objects are not on scene.
+
+Script also saves the params as `.yaml` file when running.
+
+## Script for Map division
+### Theory
+
+![Division process](doc/map_divide_shema.png "Division process")
+For obtaining submaps with intersections, there following algorithm is proposed:
+1. Do initial clustering (with AgglomerativeClustering), where `n_cluster=ceil(all_objects/submap_max_size)`. If some cluster exceeds `submap_max_size` it is clustered further.
+1. Find cluster centers and calculate 'direction diagrams' for each center. Direction diagram is an array of maximum ranges from the center to cluster elements for each sector with the same fixed division angle.
+1. Each sector in the direction diagram is extended beyond the last object of the cluster for a fixed distance `increase_range`. The objects of other clusters which fall within this extended sector are added to the main cluster.
+
+### Usage
+```python
+python3 semantic_map_divider.py --path ~/Dataset/KITTI-360/KITTI-360/scene_recogntion/sequence09/save_03_09_12_11/ ...
+```
+  - **--path** (str, must be provided) Path to folder with sequence data, obtained with `semantic_map_and_scene_extractor.py` script.
+  - **--submap_max_size** (int, default: 300) Max size of submaps in objects. 
+  - **--increase_range** (float, default: 50) Range used to extend clusters.
+  - **--dir_diag_size** (int, default: 32) Size of direction diagrams.
+  - **--objects_ignore** (list of str, default: empty) Excludes objects from map.
 
 Script also saves the params as `.yaml` file when running.
