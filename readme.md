@@ -32,7 +32,7 @@ I made a script that helps convert popular [KITTI-360](https://www.cvlibs.net/da
 | 09       | 1978           | 10330 | 5 +22%                     | [youtube](https://youtu.be/BwCCOVorgzg) [rutube](https://rutube.ru/video/private/ce1d8f211087803df3162e40817d6cd5/?p=CImUBPt_XhqPnm9Rt1KGRA) | [353.2](https://github.com/MoscowskyAnton/scene_recognition_kitti_360/releases/download/r0.0.1/seq09_save_03_09_12_11.tar.gz) MiB | <img src="doc/map_seq09.png" alt="Seq09 map" width="200"/>|
 | 10       | 1298           | 2174 | 3 +0%                     | [youtube](https://youtu.be/VubM0GEytj0) [rutube](https://rutube.ru/video/private/b1c1afcaf67833726da5b05b468ef4ba/?p=0Q7aTZM7BLv0PIPnqmoYRg) | [109.5](https://github.com/MoscowskyAnton/scene_recognition_kitti_360/releases/download/r0.0.1/seq10_save_03_09_17_11.tar.gz) MiB | <img src="doc/map_seq10.png" alt="Seq10 map" width="200"/>|
 
-\* - Number of submaps with total objects number increase.
+\* - Number of submaps with total objects number increase.  
 \*\* - on videos all visible objects - that are determined on step 2 - are marked, but those, which are with small mask or with small amount of lidar points are marked with gray color.
 
 Each sequence has the following data:
