@@ -127,6 +127,7 @@ For obtaining submaps with intersections, there following algorithm is proposed:
 1. Each sector in the direction diagram is extended beyond the last object of the cluster for a fixed distance `increase_range`. The objects of other clusters which fall within this extended sector are added to the main cluster.
 
 ### Usage
+Run scripts with params tuned:
 ```python
 python3 semantic_map_divider.py --path ~/Dataset/KITTI-360/KITTI-360/scene_recogntion/sequence09/save_03_09_12_11/ ...
 ```
