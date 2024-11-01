@@ -62,7 +62,7 @@ transform: # cam to map as 4x4 matrix
 ```
  - `.yaml` file with export params (see export script below).  
  - Map image with objects and track.
- - **[new in r0.0.2]** Added `submaps` folder for sequences with big maps. There are map is divided on smaller areas with intersection with each other. Each folder has a set of files named `semantic_submap_#.csv` in the same format as the main Semantic Map. Also has exported parameters, as well images, shown how submaps are organized. The script for division is also provided and documented below.
+ - **[[new in r0.0.2]](https://github.com/MoscowskyAnton/scene_recognition_kitti_360/releases/tag/r0.0.2)** Added `submaps` folder for sequences with big maps. There are map is divided on smaller areas with intersection with each other. Each folder has a set of files named `semantic_submap_#.csv` in the same format as the main Semantic Map. Also has exported parameters, as well images, shown how submaps are organized. The script for division is also provided and documented below.
 
 Also please note:
  - In all sequences next labels are **excluded**: driveway, fence, ground, pedestrian, railtrack, road, sidewalk, unknownConstruction, unknownGround, unknownObject, vegetation, wall, guardrail.
