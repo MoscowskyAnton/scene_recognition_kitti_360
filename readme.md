@@ -121,7 +121,7 @@ Script also saves the params as `.yaml` file when running.
 ### Theory
 
 ![Division process](doc/map_divide_shema.png "Division process")
-For obtaining submaps with intersections, there following algorithm is proposed:
+For obtaining submaps with intersections (overlaping), there following algorithm is proposed:
 1. Do initial clustering (with AgglomerativeClustering), where `n_cluster=ceil(all_objects/submap_max_size)`. If some cluster exceeds `submap_max_size` it is clustered further.
 1. Find cluster centers and calculate 'direction diagrams' for each center. Direction diagram is an array of maximum ranges from the center to cluster elements for each sector with the same fixed division angle.
 1. Each sector in the direction diagram is extended beyond the last object of the cluster for a fixed distance `increase_range`. The objects of other clusters which fall within this extended sector are added to the main cluster.
