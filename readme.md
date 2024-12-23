@@ -105,7 +105,7 @@ python3 scripts/semantic_map_and_scene_extractor.py --kitti_360_path ~/KITTI-360
   - **--max_object_dist_m** (float, default: 50) Objects further that that value will not be added to scene.
   - **--iou_cost_th** (float, default: 0.2) IoU threshold for mask-rect matching.
   - **--min_lidar_intensity** (float, defualt: 0.2) Lidar points with intensity value less that that will be discarded.
-  - **--min_lidar_points** (int, defualt: 10) If object mask has less lidar points on it than that value, that object will be discarded from scene. Note that only points with intensity higher than **--min_lidar_points** encounted.
+  - **--min_lidar_points** (int, defualt: 10) If object mask has less lidar points on it than that value, that object will be discarded from scene. Note that only points with intensity higher than **--min_lidar_intensity** encounted.
   - **--do_clip** (bool, default: false) If set, calculates CLIP features for objects.
   - **--objects_ignore** (list of str, default: empty) Set additional object labels for ignore.
   - **--save_map_unlabeled** (bool, default: false) If set saves image of map without object IDs.
