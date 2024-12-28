@@ -619,7 +619,8 @@ class SemanticMapAndScenesExtractor(object):
                             cropped_obj[obj['cropped_mask'] == 0] = (127,127,127)                                                                        
                             inputs = self.clip_processor(text = [""], images = [cropped_obj], return_tensors = "pt", padding=True) # TODO find way not to proceed text every time
                             outputs = self.clip_model(**inputs)
-                            obj['features'] = outputs.image_embeds.detach().numpy().flatten()                        
+                            features = outputs.image_embeds.detach().numpy().flatten()    
+                            obj['features'] = features / np.linalg.norm(features) # normalize vectors
                             self.feature_len = obj['features'].shape[0]
                                                 
                 ### SAVE 
@@ -658,8 +659,7 @@ class SemanticMapAndScenesExtractor(object):
                         video.write(image)
                 
                 if video_map or video_mix:
-                
-                    #img = self.plot_scene_in_map(frame_no)
+                                    
                     img = self.plot_scene_in_map_compass(frame_no)     
                     
                     if video_map and video_map_file is None:
@@ -673,9 +673,7 @@ class SemanticMapAndScenesExtractor(object):
                 if video_mix:
                     
                     scale = img.shape[0] / image.shape[0] 
-                    img_re = cv2.resize(img, (int(img.shape[1] / scale), image.shape[0]) ) 
-                    
-                    #print(image.shape, img.shape, img_re.shape)
+                    img_re = cv2.resize(img, (int(img.shape[1] / scale), image.shape[0]) )                                     
                     
                     merged_img = np.concatenate((image, img_re), axis=1)
                     
@@ -855,17 +853,10 @@ class SemanticMapAndScenesExtractor(object):
         
         transform = np.array(self.cam_poses[frame_no]['transform'])        
         
-        plt.arrow(0, 0, self.max_object_dist_m / 10, 0, label = "cam x", color = 'red')
-        
-        #robot_pose = np.array([[0, 0 , 0, 1], [0, 0, self.max_object_dist_m / 5, 1]]).T
-        #robot_pose = (transform @ robot_pose).T
-        
+        plt.arrow(0, 0, self.max_object_dist_m / 10, 0, label = "cam x", color = 'red')                        
         plt.arrow(0, 0, 0, self.max_object_dist_m / 10, label = "cam z", color = 'blue')
         
-        obj_poses = np.array(obj_poses)                        
-        
-        #if obj_poses.shape[0]:            
-            #obj_poses[:,1:] = (transform @ obj_poses[:,1:].T).T
+        obj_poses = np.array(obj_poses)                                
         
         for label, objects in self.MAP.items():
             color = self.object_colors[label]
