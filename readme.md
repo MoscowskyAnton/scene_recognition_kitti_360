@@ -15,7 +15,7 @@ I made a script that helps convert popular [KITTI-360](https://www.cvlibs.net/da
 1. 3D boxes of those objects are projected to bounding rectangles on camera plane by its calibration parameters.
 1. 2D semantic masks are being matched with those rects by hungarian optimization of IoU score - there are global match of IDs is obtained.
 1. Lidar points are projected to image plane, than points on object mask are selected, and distances to objects are calculated.
-1. Raw images are used to obtain [CLIP](https://huggingface.co/openai/clip-vit-base-patch32) features, but first the image is cropped by its masks, filling extra areas with grey color.
+1. Raw images are used to obtain [CLIP](https://huggingface.co/openai/clip-vit-base-patch32) features (not-normalized in r0.0.2 and before), but first the image is cropped by its masks, filling extra areas with grey color.
 1. All data exported in `.csv` and `.yaml` formats.
 
 ## Download prepared sequences
