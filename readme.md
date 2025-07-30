@@ -129,7 +129,7 @@ For obtaining submaps with intersections (overlaping), there following algorithm
 ### Usage
 Run scripts with params tuned:
 ```python
-python3 semantic_map_divider.py --path ~/Dataset/KITTI-360/KITTI-360/scene_recogntion/sequence09/save_03_09_12_11/ ...
+python3 scripts/semantic_map_divider.py --path ~/Dataset/KITTI-360/KITTI-360/scene_recogntion/sequence09/save_03_09_12_11/ ...
 ```
   - **--path** (str, must be provided) Path to folder with sequence data, obtained with `semantic_map_and_scene_extractor.py` script.
   - **--submap_max_size** (int, default: 300) Max size of submaps in objects. 
